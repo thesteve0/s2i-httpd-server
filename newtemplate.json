@@ -1,0 +1,46 @@
+
+  {
+    "kind": "List",
+    "apiVersion": "v1",
+    "metadata": {},
+    "items": [
+      {
+            "kind": "ImageStream",
+            "apiVersion": "v1",
+            "metadata": {
+                "name": "httpd-server"
+            }
+        },
+        {
+            "kind": "ImageStream",
+            "apiVersion": "v1",
+            "metadata": {
+                "name": "httpd-server-s2i",
+                "annotations": {
+                  "openshift.io/display-name": "HTTPD"
+                }
+            },
+            "spec": {
+                "tags": [
+                    {
+                        "name": "latest",
+                        "annotations": {
+                        "openshift.io/display-name": "Apache HTTPD",
+                        "description": "Build and run simple web content.",
+              "iconClass": "icon-java",
+              "tags": "hidden,builder,httpd",
+              "supports": "html",
+              "version": "1.0",
+              "sampleRepo": "https://github.com/openshift/ruby-ex.git"
+            },
+
+                        "from": {
+                            "kind": "DockerImage",
+                            "name": "getwarped/s2i-httpd-server:latest"
+                        }
+                    }
+                ]
+            }
+        }
+      ]
+}
