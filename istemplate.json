@@ -1,0 +1,39 @@
+
+  {
+    "kind": "List",
+    "apiVersion": "v1",
+    "metadata": {},
+    "items": [        {
+            "kind": "ImageStream",
+            "apiVersion": "v1",
+            "metadata": {
+                "name": "${APPLICATION_NAME}",
+                "labels": {
+                    "appid": "httpd-server-${APPLICATION_NAME}"
+                }
+            }
+        },
+        {
+            "kind": "ImageStream",
+            "apiVersion": "v1",
+            "metadata": {
+                "name": "${APPLICATION_NAME}-s2i",
+                "labels": {
+                    "appid": "httpd-server-${APPLICATION_NAME}"
+                }
+            },
+            "spec": {
+                "tags": [
+                    {
+                        "name": "latest",
+                        "from": {
+                            "kind": "DockerImage",
+                            "name": "getwarped/s2i-httpd-server:latest"
+                        }
+                    }
+                ]
+            }
+        }
+      ]
+}
+      
