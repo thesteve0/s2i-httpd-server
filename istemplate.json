@@ -25,7 +25,7 @@
                     {
                         "name": "latest",
                         "annotations": {
-              "openshift.io/display-name": "Apache HTTPD",
+                        "openshift.io/display-name": "Apache HTTPD",
               "description": "Build and run simple web content.",
               "iconClass": "icon-java",
               "tags": "hidden,builder,httpd",
